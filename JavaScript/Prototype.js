@@ -23,7 +23,7 @@ var Cars = function () {
 var VW = function (name) {
   // get all the props from Cars,
   // but we don't have access to prototype method at this point
-
+  Cars.call(this);
   // another way
   this.name = name;
 };
@@ -32,20 +32,20 @@ var VW = function (name) {
 // console.log("Print Method", Tiguan.print());
 
 // get access to prototype method
-VW.prototype = Object.create(Cars.prototype);
+VW.prototype = Cars.prototype;
 VW.prototype.constructor = VW;
 
 //也可以直接写为
 //VM.prototype = new Cars;
 
 // to override a prototype method we have to do this after prototype inheritance
-// VW.prototype.print = function () {
-//   return "This is print() from  VW";
-// };
-
-Object.prototype.print = function () {
-  return "This is Print from Master object";
+VW.prototype.print = function () {
+  return "This is print() from  VW";
 };
+
+// Object.prototype.print = function () {
+//   return "This is Print from Master object";
+// };
 
 var Tiguan = new VW("Tiguan");
 
