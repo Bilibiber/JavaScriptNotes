@@ -10,8 +10,9 @@
 //我们可以把所有的method用 ObjectName.prototype.methodName 的形式把function 外置。
 
 // this is a constructor !!!
-var Cars = function () {
+var Cars = function (name) {
   this.isCar = true;
+  this.name = name;
 };
 
 // this is a prototype method but part of Cars
@@ -25,7 +26,7 @@ var VW = function (name) {
   // but we don't have access to prototype method at this point
   Cars.call(this);
   // another way
-  this.name = name;
+  this.Lname = name;
 };
 
 // but we don't have access to print yet, run following code will crush your console
