@@ -22,7 +22,7 @@ console.log(add()); // return 30
 // and makes them available outside
 
 // 个人理解： 闭包是一种特殊区间，这个区间会包含某个函数将要用到的变量， 并让这些变量在其他地方也可以使用
-// 变量是独立存在的， 每一个单独的闭包会有自己的 closure.
+// 变量是独立存在的， 每一个单独的闭包会有自己的变量.
 // 形成的条件就是你有一个 functionA
 // 并且该functionA 会返回另外一个functionB, functionB 中需要用到 functionA 中的变量
 
@@ -31,7 +31,7 @@ let functionA;
 function OuterFunction() {
   let innerData = "Hi";
   return function (...data) {
-    console.log(innerData);
+    console.log(innerData + " Mason");
     console.log(...data);
   };
 }
