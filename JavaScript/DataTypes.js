@@ -18,7 +18,7 @@ var aSymbol;
 // 常规的网页编程用不到,知道这个是什么就行
 
 var aObject = {
-  name: "I'm a object",
+  name: "I'm a object"
 };
 
 var aFunction = function () {
