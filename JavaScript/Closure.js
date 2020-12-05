@@ -39,3 +39,24 @@ function OuterFunction() {
 functionA = OuterFunction();
 functionA("called", "haha");
 // innerData still accessible here, innerData is inside a closure
+
+// Closure inside a loop
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+} // log 0,1,2
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+} // log 3,3,3
+
+//  why? 因为我们用来 declare i 的关键词不同， let 属于是 block scope, var 是 global scope.
+//  这就会导致 var i 每次更新时，我们log里的 i 也会随之改变， 反之 let i 都是一个独立的个体
+//  当外部的 i 改变时，log中的 i 还是自己原本的值，也就是 0，1，2
+//  至于 var i 为什么会变成 3， 就是因为for loop的运行原理
+
+// Closure 的运行原理
+//
