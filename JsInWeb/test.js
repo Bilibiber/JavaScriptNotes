@@ -1,12 +1,23 @@
 "use strict";
-var Car = function (color) {
-  this.color = color;
+var Car = function (VIN, plate) {
+  this.color = "gray";
+  this.VIN = VIN;
+  this.plate = plate;
 };
 
-let BMW = new Car("red");
+Car.prototype.print = () => {
+  return "Car's prototype";
+};
 
-console.log("BMW :>> ", BMW.color);
+var ToyCar = function () {
+  Car.call(this, "1234", "BFEV");
+};
 
-let aArray = [1, 2, 3, 4];
+ToyCar.prototype = Object.create(Car.prototype);
 
-console.log(Array.prototype.isPrototypeOf(aArray));
+ToyCar.prototype.print = () => {
+  return "From ToyCar";
+};
+
+let Quincy = new ToyCar();
+console.log(Quincy);
